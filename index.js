@@ -3,7 +3,14 @@ const scoreCard = document.getElementById("theScore");
 const c = canvas.getContext("2d");
 canvas.width = innerWidth;
 canvas.height = innerHeight;
-
+const shootSound = new Audio('./laser.mp3'); // Replace with the correct path to your sound file
+shootSound.volume = 0.5; // Adjust volume between 0.0 to 1.0
+const explosionSound = new Audio('./explosion.mp3');
+explosionSound.volume = 0.5
+const shipExplode = new Audio('./shipexplode.mp3')
+shipExplode.volume = 0.5
+const hitSound = new Audio('./hit.mp3')
+hitSound.volume = 0.5
 let score = 0;
 const playerStartPos = {
   x: canvas.width / 2,
@@ -272,6 +279,7 @@ function animate() {
           }, 2000);
 
           mainPlayer.alive = false;
+          shipExplode.play();
         }
       }
       projectiles.forEach((projectile, projectileIndex) => {
@@ -295,11 +303,17 @@ function animate() {
           projectiles.splice(projectileIndex, 1);
           if (enemy.radius - enemyReductionOnHit >= minEnemySize) {
             increaseScore(hitButNotDestroy);
+            hitSound.pause();
+            hitSound.currentTime = 0;
+            hitSound.play();
             gsap.to(enemy, {
               radius: enemy.radius - enemyReductionOnHit,
             });
           } else {
             increaseScore(hitAndDestroy);
+            explosionSound.pause();
+            explosionSound.currentTime = 0;
+            explosionSound.play();
             enemies.splice(index, 1);
           }
         }
@@ -325,6 +339,8 @@ addEventListener("keydown", (event) => {
   }
 });
 addEventListener("click", (event) => {
+  shootSound.pause();
+  shootSound.currentTime = 0;
   if (mainPlayer.alive) {
     let angle = Math.atan2(event.clientY - mainPlayer.y, event.clientX - mainPlayer.x);
     const projectile = new Projectile(mainPlayer.x, mainPlayer.y, "white", {
@@ -334,6 +350,9 @@ addEventListener("click", (event) => {
 
     projectiles.push(projectile);
     projectile.draw();
+    // Play shoot sound
+    shootSound.play();
+    
   }
 });
 addEventListener("mousemove", (event) => {

@@ -9,31 +9,22 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
-    <script defer src="./index.js"></script>
+    <script defer src="index.js"></script>
+    <link rel="stylesheet" href="canvas.css" />
     <title>Game</title>
 
-    <style>
-      body {
-        margin: 0;
-      }
-      #scoreboard {
-        position: fixed;
-      }
-      p {
-        color: white;
-        float: left;
-        display: relative;
-        letter-spacing: 5px;
-        margin: 5px 5px;
-        user-select: none;
-      }
-    </style>
+    <div className="header2" style="background-color:greenyellow; text-align:center; font-size:16px;">
+      <a className="buycoffeelink" href="https://www.buymeacoffee.com/jerichosharman" target="_blank"
+        >Buy Jericho a coffee</a
+      >
+    </div>
   </head>
   <body>
     <div id="scoreboard">
       <p>Score :</p>
       <p id="theScore">0</p>
     </div>
+
     <canvas id="canvas"></canvas>
   </body>
 </html>
