@@ -25,6 +25,9 @@ h2 {
   align-items: center;
   justify-content: center;
 }
+::-webkit-scrollbar {
+    display: none;
+}
 
 img {
   height: 100%;
@@ -48,6 +51,9 @@ img {
   position: relative;
   opacity: 1;
   z-index: 0.1;
+}
+::-webkit-scrollbar {
+  display:none;
 }
 #hero ::after {
   content: "";
@@ -154,3 +160,4 @@ img {
   top: 0;
   transition: top 0.3s; /* Smooth transition for sliding effect */
 }
+

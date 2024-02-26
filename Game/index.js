@@ -20,7 +20,7 @@ let projectiles = [];
 let enemies = [];
 let particles = [];
 let stars = [];
-const starSize = 3;
+const starSize = 4;
 const friction = 0.99;
 //  ***********************************************************************************
 //  PLAYER
@@ -280,6 +280,13 @@ function animate() {
 
           mainPlayer.alive = false;
           shipExplode.play();
+          const msg = document.getElementById("loseMessage")
+          msg.style.display = "block"
+          msg.addEventListener("click", () => {
+            msg.style.display = "none";
+            location.reload();
+          });
+
         }
       }
       projectiles.forEach((projectile, projectileIndex) => {
@@ -342,7 +349,8 @@ addEventListener("click", (event) => {
   shootSound.pause();
   shootSound.currentTime = 0;
   if (mainPlayer.alive) {
-    let angle = Math.atan2(event.clientY - mainPlayer.y, event.clientX - mainPlayer.x);
+    const headerHeight = document.getElementById("header").offsetHeight;
+    let angle = Math.atan2(event.clientY - mainPlayer.y - headerHeight, event.clientX - mainPlayer.x);
     const projectile = new Projectile(mainPlayer.x, mainPlayer.y, "white", {
       x: Math.cos(angle) * projectileSpeed,
       y: Math.sin(angle) * projectileSpeed,
@@ -352,7 +360,7 @@ addEventListener("click", (event) => {
     projectile.draw();
     // Play shoot sound
     shootSound.play();
-    
+
   }
 });
 addEventListener("mousemove", (event) => {
@@ -364,3 +372,21 @@ addEventListener("mousemove", (event) => {
 createTheStars(NUMBER_OF_STARS);
 spawnEnemies();
 animate();
+canvas.addEventListener("touchstart", (event) => {
+  shoot(event.touches[0].clientX, event.touches[0].clientY);
+});
+
+function shoot(touchX, touchY) {
+  // Adjust for header height if necessary
+  const headerHeight = document.getElementById("scoreboard").offsetHeight;
+  let angle = Math.atan2(touchY - mainPlayer.y - headerHeight, touchX - mainPlayer.x);
+  const projectile = new Projectile(mainPlayer.x, mainPlayer.y, "white", {
+    x: Math.cos(angle) * projectileSpeed,
+    y: Math.sin(angle) * projectileSpeed,
+  });
+
+  projectiles.push(projectile);
+  projectile.draw();
+  // Play shoot sound
+  shootSound.play();
+}

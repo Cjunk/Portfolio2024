@@ -10,21 +10,26 @@
       referrerpolicy="no-referrer"
     ></script>
     <script defer src="index.js"></script>
-    <link rel="stylesheet" href="canvas.css" />
-    <title>Game</title>
 
-    <div className="header2" style="background-color:greenyellow; text-align:center; font-size:16px;">
-      <a className="buycoffeelink" href="https://www.buymeacoffee.com/jerichosharman" target="_blank"
+    <title>Game</title>
+    <link rel="stylesheet" href="canvas.css" />
+  </head>
+  <body>
+    <div id="header" class="header2" style="background-color: greenyellow; text-align: center; font-size: 16px;position:relative;">
+      <a class="buycoffeelink" href="https://www.buymeacoffee.com/jerichosharman" target="_blank"
         >Buy Jericho a coffee</a
       >
     </div>
-  </head>
-  <body>
     <div id="scoreboard">
       <p>Score :</p>
       <p id="theScore">0</p>
     </div>
+    <div>
+      <canvas id="canvas"></canvas>
+    </div>
 
-    <canvas id="canvas"></canvas>
+    <div id="loseMessage" class="lose-message">
+      <h1>YOU LOSE</h1>
+    </div>
   </body>
 </html>
