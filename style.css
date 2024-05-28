@@ -9,6 +9,10 @@ html {
   font-family: "Montserrat", sans-serif;
   scroll-behavior: smooth;
 }
+body {
+  padding-bottom: 7vh; /* Adds padding at the bottom which includes 10vh for the footer and 20vh additional space */
+  margin: 2vh 2vw; /* Adds a small viewport-relative margin around the content to ensure it does not touch the edges */
+}
 a {
   text-decoration: none;
 }
@@ -18,6 +22,86 @@ h2 {
   color: rgb(102, 158, 190);
   font-size: 26px;
 }
+.portfolio-container{
+  display: grid;  
+  grid-template-columns: repeat(3, 1fr); /* Creates three columns */
+  grid-template-rows: repeat(2, 1fr); /* Explicitly creates two rows */  
+  grid-gap: 20px; /* Optional: adds gap between grid items */  
+  height: calc(100vh - 7vh); /* Subtracts both the bottom padding and extra top margin to fit the container */
+  width: calc(100% - 4vw); /* Adjusts for horizontal margins set on the body */
+  margin: auto; /* Centers the container with respect to the side margins */
+  overflow: hidden; /* Prevents content from spilling out */
+    align-items: center; /* Centers content vertically within each grid cell */
+  justify-content: center; /* Centers content horizontally within each grid cell */
+
+  
+}
+.portfolio-container a {
+  height: 80%;
+  width: 80%;
+  margin: 5px;
+  border-radius: 15px;
+  padding: 20px; /* Increased padding for better visual */
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease; /* Smooth transition for hover effects */
+    display: grid;
+  grid-template-rows: auto 1fr auto;
+  text-align: center; /* Align text to the center */
+
+  /* Shadow for depth */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    background: linear-gradient(to right, #ff416c, #ff4b2b); /* Fancy gradient background */
+  color: white; /* Better visibility on darker backgrounds */
+  /* Other styles remain the same */
+}
+.portfolio-project {
+  
+  height: 80%;
+  width: 80%;
+  margin: 5px;
+  border-radius: 15px;
+  padding: 20px; /* Increased padding for better visual */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease; /* Smooth transition for hover effects */
+    display: grid;
+  grid-template-rows: auto 1fr auto;
+  text-align: center; /* Align text to the center */
+
+  /* Shadow for depth */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    background: linear-gradient(to right, #ff416c, #ff4b2b); /* Fancy gradient background */
+  color: white; /* Better visibility on darker backgrounds */
+  /* Other styles remain the same */
+}
+.portfolio-project i {
+  font-size: 2rem;
+  color: #fff; /* White color for icon */
+}
+
+.portfolio-project h3 {
+  margin-top: 10px; /* Space between icon and title */
+  background-color:black;
+}
+
+.portfolio-project p {
+  font-size: 0.9rem;
+  opacity: 0.8; /* Slightly dim the text for aesthetics */
+}
+
+.portfolio-project:hover {
+  transform: translateY(-5px); /* Lift card up slightly on hover */
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2); /* Increased shadow for lifting effect */
+}
+
 .container {
   min-height: 100vh;
   width: 100%;
@@ -25,6 +109,7 @@ h2 {
   align-items: center;
   justify-content: center;
 }
+
 ::-webkit-scrollbar {
   display: none;
 }
@@ -114,11 +199,12 @@ img {
 
 .footer {
   position: fixed;
+  left:0;
   width:100%;
-  height:10vh;
+  height:7vh;
   bottom:0;
   z-index:3000;
-  background-color:red;
+  background-color:rgb(95, 5, 5);
 }
 
 
@@ -155,4 +241,26 @@ img {
 }
 ::-webkit-scrollbar {
   display: none;
+}
+
+
+@media (max-width: 768px) {
+  .portfolio-project {
+    width: 95%;
+    height: auto; /* Adjust height for mobile devices */
+  }
+  .portfolio-container{
+  display: grid;  
+  grid-template-columns: repeat(1, 1fr); /* Creates three columns */
+  grid-template-rows: repeat(22, 1fr); /* Explicitly creates two rows */  
+  grid-gap: 20px; /* Optional: adds gap between grid items */  
+  height: calc(100vh - 7vh); /* Subtracts both the bottom padding and extra top margin to fit the container */
+  width: calc(100% - 4vw); /* Adjusts for horizontal margins set on the body */
+  margin: auto; /* Centers the container with respect to the side margins */
+  overflow: hidden; /* Prevents content from spilling out */
+    align-items: center; /* Centers content vertically within each grid cell */
+  justify-content: center; /* Centers content horizontally within each grid cell */
+
+  
+}
 }

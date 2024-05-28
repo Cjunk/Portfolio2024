@@ -3,6 +3,9 @@
 Thumbs.db
 /DINO WORLD
 /Bin
+/WEBSITES_STATS
+/php
+/TODO
 # Ignore node_modules directory
 node_modules/
 

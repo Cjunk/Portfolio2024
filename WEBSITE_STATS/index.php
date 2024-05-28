@@ -8,10 +8,15 @@
   <script defer>
     document.addEventListener('DOMContentLoaded', () => {
       const headers = document.querySelectorAll('.header');
-      console.log(headers);
+      
     });
+
+    function dd(websiteID, websiteURL) {
+      window.location.href = `get_detail.php?websiteID=${websiteID}&&websiteURL=${websiteURL}`;
+      
+    };
   </script>
-  <title>Document2</title>
+  <title>WEBSITE TRACKER</title>
 </head>
 
 <body>
