@@ -1,0 +1,27 @@
+body,html {
+    margin:0;
+    padding:0;
+}
+.header{
+    width: 100%;
+    position: sticky;
+    top: 0;
+    background-color: white;
+    z-index: 1000; /* Ensure it stays on top of other content */
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+tr:hover {
+  background-color: red;
+  cursor: pointer;
+}

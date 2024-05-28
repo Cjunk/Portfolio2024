@@ -34,38 +34,34 @@ img {
   width: 100%;
   object-fit: cover;
 }
+#portfolios, #services, #Resume {
+  background-color:rgb(102, 158, 190,0.8); 
+  z-index:1;
+}
+#portfolios {
+  margin-top: 100vh;
+  
+  
+}
+
 /* HERO SECTION */
-#hero video {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  min-width: auto;
-  min-height: auto;
-  z-index: -1;
-  object-fit: cover; /* or 'contain' depending on the desired effect */
-}
+
 #hero {
-  background-image: url("./img/jericho_sharman.jpg");
-  background-size: cover;
-  background-position: top center;
-  position: relative;
-  opacity: 1;
-  z-index: 0.1;
+    background-image: url("./img/jericho_sharman.jpg"); /* Ensure this path is correct */
+    background-size: cover;
+    background-position: top center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh; /* Adjust if you want it shorter */
+    z-index: -1; /* Lower than content to let others scroll over */
 }
+
 ::-webkit-scrollbar {
   display: none;
 }
-#hero ::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 100%;
-  background-color: black;
-  opacity: 0.25;
-  z-index: -1;
-}
+
 #hero h1 {
   display: block;
   width: fit-content;
@@ -116,6 +112,16 @@ img {
   background-color: crimson;
 }
 
+.footer {
+  position: fixed;
+  width:100%;
+  height:10vh;
+  bottom:0;
+  z-index:3000;
+  background-color:red;
+}
+
+
 /* keyframes */
 @keyframes text-reveal-box {
   50% {
@@ -132,19 +138,6 @@ img {
     color: white;
   }
 }
-.video-wrapper {
-  position: relative;
-  padding-top: 56.5%; /* for 16:9 aspect ratio, adjust as needed */
-  height: 0;
-}
-.video-wrapper video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
 #portfolioButton {
   position: sticky;
   top: 0;

@@ -4,27 +4,18 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- <link rel="preconnect" href="https://fonts.googleapis.com" /> -->
-    <!-- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /> -->
-    <!-- <link rel="preconnect" href="https://fonts.googleapis.com" /> -->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preload" rel="stylesheet" href="style.css" />
     <link rel="preload" href="img/vid33.mp4" as="video" type="video/mp4" />
     <link rel="preload" href="script.js" as="script" />
+    <link rel="stylesheet" href="style.css" />
     <title>Jericho</title>
     <script defer src="script.js"></script>
-    <script defer src="index.js"></script>
   </head>
   <body>
     <!-- hero section -->
     <section id="hero">
       <div class="hero container">
-        <!-- <div class="video-wrapper">
-          <video autoplay muted loop id="heroVideo">
-            <source src="img/vid33.mp4" type="video/mp4" />
-            Your browser does not support HTML5 video.
-          </video>
-        </div> -->
         <div>
           <h1>Introducing<span></span></h1>
           <h1>Jericho Sharman<span></span></h1>
@@ -37,13 +28,14 @@
         </div>
       </div>
     </section>
+
     <section id="portfolios">
       <div class="hero container">
         <div>
           <h1>portfolios</h1>
           <a href="#services" type="button" class="cta">services</a>
 
-        <a href="./game.html" target="_blank">The game</a>
+        <a href="http://www.jerichosharman.com.au/Game/game.html" target="_blank">The game</a>
       </div>
     </section>
     <section id="services">
@@ -58,10 +50,12 @@
       <div class="hero container">
         <div>
           <h1>Resume</h1>
-          <a href="#hero" type="button" class="cta">Home</a>
+          <a id="homeButton" href="#hero" type="button" class="cta">Home</a>
         </div>
       </div>
     </section>
-    <link rel="stylesheet" href="style.css" />
+   <div class="footer">
+
+   </div> 
   </body>
 </html>
